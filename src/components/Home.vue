@@ -7,3 +7,5 @@
             voluptatem.</p>
     </div>
 </template>
+<script>
+</script>
