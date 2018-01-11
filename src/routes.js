@@ -5,15 +5,28 @@ import UserEdit from './components/User/UserEdit.vue'
 import UserStart from './components/User/UserStart.vue'
 
 export const routes = [
-  {path:'/', component: home, name:'home'},
-  {path:'/user', component: User, children: [
-    {path:'', component: UserStart},
-    {path:':id', component: UserDetail},
-    {path:':id/edit', component: UserEdit, name:'userEdit', beforeEnter: (to, from, next) => {
-      console.log('inside edit')
-      next()
-    }}
-  ]},
+  {
+    path:'/', 
+    component: home, 
+    name:'home'
+  },
+  {
+    path:'/user',
+    component: User,
+    children: [
+      {path:'', component: UserStart},
+      {path:':id', component: UserDetail},
+      {
+        path:':id/edit',
+        component: UserEdit,
+        name:'userEdit',
+        beforeEnter: (to, from, next) => {
+          console.log('inside edit')
+          next()
+        }
+      }
+    ]
+  },
   { path: '/redirect-me', redirect: {name: 'home'} },
   { path: '*', redirect: '/' }
 ]
