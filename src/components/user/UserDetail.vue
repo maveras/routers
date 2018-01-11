@@ -20,6 +20,13 @@
 					hash: '#data'
 				}
 			}
+		},
+		beforeRouteEnter (to, from, next) {
+			if (true) { // something .. auth for example
+				next()
+			} else {
+				next(false)
+			}
 		}
 	}
 </script>
